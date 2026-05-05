@@ -2,7 +2,7 @@
 -------------------------------------------
 Nombre: Wilcox Saint-Hilaire
  Curso: Automatizacion de Pruebas
- Practica: Login Incorrecto
+ Practica: Borrar empleado
  Profesor: Felix Lora
  ------------------------------------------*/
 //importar Playwright test
@@ -11,7 +11,7 @@ import { test, expect } from '@playwright/test';
 
  //definir el bloque de pruebas
 
-test('Login con credencial invalida', async ({page})=>{
+test('Login con credencial valida', async ({page})=>{
 
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
  await page.pause();
@@ -28,13 +28,9 @@ test('Login con credencial invalida', async ({page})=>{
    // seleccionar boton pim
     await page.getByRole('link', { name: 'PIM' }).click();
 
-    // seleccionar boton de + add para registrar
-    await page.getByRole('button', { name: 'Add' }).click();
-
-    // llenando  el campo First Name, middle name y last name
-    await page.getByPlaceholder('First Name').fill('Wilcox');
-    await page.getByPlaceholder('Middle Name').fill('Saint-Hilaire');
-    await page.getByPlaceholder('Last Name').fill('Thomas');
+       // llenando  el campo First Name, middle name y last name
+    await page.getByPlaceholder('Type for hints...').first().fill('Wilcox');
+    await page.locator('button[type="submit"]').click();
 
     // 7) seleccionar checkbox de Create Login Details
     //await page.getByText('Create Login Details').click();
@@ -48,7 +44,7 @@ test('Login con credencial invalida', async ({page})=>{
 
 
     // click en el boton save
-    await page.getByRole('button', { name: 'Save' }).last().click();
+    //await page.getByRole('button', { name: 'Save' }).last().click();
  
 
   });
