@@ -2,7 +2,7 @@
 -------------------------------------------
 Nombre: Wilcox Saint-Hilaire
  Curso: Automatizacion de Pruebas
- Practica: Borrar empleado
+ Practica: Bucar empleado
  Profesor: Felix Lora
  ------------------------------------------*/
 //importar Playwright test
@@ -30,17 +30,8 @@ test('Login con credencial valida', async ({page})=>{
 
        // llenando  el campo First Name, middle name y last name
     await page.getByPlaceholder('Type for hints...').first().fill('Wilcox');
-    //await page.locator('button[type="submit"]').click();
-     8) hacer click en el boton search
-    await page.getByRole('button', { name: 'Search' }).click();
-    
-    // 9) editar el empleado localizador oxd-icon bi-pencil-fill
-    //await page.locator('.oxd-icon.bi-pencil-fill').click();
+    await page.locator('button[type="submit"]').click();
 
-
-    // 9) Borrar el empleado localizador oxd-table-cell-action-space
-    await page.locator('.oxd-icon-button oxd-table-cell-action-space').click();
-    
     // 7) seleccionar checkbox de Create Login Details
     //await page.getByText('Create Login Details').click();
    
@@ -55,7 +46,5 @@ test('Login con credencial valida', async ({page})=>{
     // click en el boton save
     //await page.getByRole('button', { name: 'Save' }).last().click();
  
-
-
 
   });
